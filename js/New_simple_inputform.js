@@ -33,6 +33,7 @@ const emailError = document.querySelector('.email-error');
 email.addEventListener('input', function () 
 {
     let emailRegex = RegExp("^[A-Za-z]{3,}([.+_-][A-Za-z0-9]+)*[@][A-Za-z0-9]{1,}[.][a-zA-Z0-9]{2,3}([.][0-9a-zA-Z]{2})?$");
+    //Checking email is valid or not using if else statement
     if (emailRegex.test(email.value)) 
     {
         emailError.textContent = "";
@@ -57,5 +58,24 @@ tel.addEventListener('input', function ()
     else 
     {
         telError.textContent = "telephone number is not Valid";
+    }
+});
+
+//uc4-Validating password min 8 characters
+
+//uc5- one spl char, atleast one digit capital letter and 1 numeric number in the password
+const pwd = document.querySelector('#pwd');
+const pwdError = document.querySelector('.pwd-error');
+pwd.addEventListener('input', function () 
+{
+    let pwdRegex = RegExp('^(?=.*[0-9])(?=.*[A-Z])(?=.*[^0-9a-zA-Z])(?!.*[^0-9a-zA-Z].*[^0-9a-zA-Z]).{8,}$');
+    //checking password is valid or not by using if else condition
+    if (pwdRegex.test(pwd.value)) 
+    {
+        pwdError.textContent = "";
+    }
+    else 
+    {
+        pwdError.textContent = "password is not Valid";
     }
 });
